@@ -50,14 +50,21 @@ class SearchCommand extends Command {
             $date
         );
         $data = json_decode($results);
-        $rows = $this->generateTableRows($data->data->datas);
-        $table = new Table($output);
-        $table
-            ->setHeaders(['车次', '出发', '到达','历时','软卧', '硬卧', '软座', '硬座', '无座'])
-            ->setRows(
-                $rows
-            );
-        $table->render();
+        if ( isset($data->status) && $data->status ) {
+            $rows = $this->generateTableRows($data->data->datas);
+            $table = new Table($output);
+            $table
+                ->setHeaders(['车次', '出发', '到达', '历时', '软卧', '硬卧', '软座', '硬座', '无座'])
+                ->setRows(
+                    $rows
+                );
+            $table->render();
+
+            return true;
+        }
+        $output->writeln('<error>请填写正确地地址</error>');
+
+        return false;
     }
 
     /**
@@ -90,6 +97,7 @@ class SearchCommand extends Command {
      */
     protected function getStationCode($text)
     {
+        //todo: make it more smart
         $stations = explode('|', self::$stationNames);
         if ( in_array($text, $stations) ) {
             $code = $stations[ array_search($text, $stations) + 1 ];
@@ -130,6 +138,8 @@ class SearchCommand extends Command {
      */
     protected function today()
     {
+        date_default_timezone_set('Asia/Chongqing');
+
         return date('Y-m-d');
     }
 }
