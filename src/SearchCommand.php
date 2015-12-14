@@ -53,11 +53,8 @@ class SearchCommand extends Command {
         if ( isset($data->status) && $data->status ) {
             $rows = $this->generateTableRows($data->data->datas);
             $table = new Table($output);
-            $table
-                ->setHeaders(['车次', '出发', '到达', '历时', '软卧', '硬卧', '软座', '硬座', '无座'])
-                ->setRows(
-                    $rows
-                );
+            $table->setHeaders(['车次', '出发', '到达', '历时','商务座','特等座','一等座','二等座', '软卧', '硬卧', '软座', '硬座', '无座'])
+                ->setRows($rows);
             $table->render();
 
             return true;
@@ -121,6 +118,10 @@ class SearchCommand extends Command {
                 $row->start_time,
                 $row->arrive_time,
                 $row->lishi,
+                $row->swz_num,
+                $row->tz_num,
+                $row->zy_num,
+                $row->ze_num,
                 $row->rw_num,
                 $row->yw_num,
                 $row->rz_num,
