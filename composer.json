@@ -1,0 +1,24 @@
+{
+    "name": "laravist/search",
+    "description": "A Command Line App For Search Tickets From 12306",
+    "type": "php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JellyBool",
+            "email": "jellybool@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Laravist\\Search\\Console\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/console": "~3.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "bin": [
+        "search"
+    ]
+}
