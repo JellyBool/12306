@@ -1,4 +1,4 @@
-## A Command Line App For Search Tickets From 12306
+## A Command Line App For Searching Tickets From 12306
 
 **命令行查询12306的火车票**
 
