@@ -2,7 +2,7 @@
 
 **命令行查询12306的火车票**
 
-![](https://dn-laravist.qbox.me/2015-12-15_20-58-16.png)
+![](https://o0dpls1ru.qnssl.com/2015-12-15_20-58-16.png)
 
 ## 使用方法:
 
